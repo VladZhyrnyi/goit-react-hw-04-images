@@ -45,9 +45,7 @@ export class ImageGallery extends Component {
     const { sQuery } = this.props;
 
     if (prevSQuery !== sQuery) {
-      this.setState(initialState);
-
-      this.getImages();
+      this.setState(initialState, this.getImages);
     }
   }
 

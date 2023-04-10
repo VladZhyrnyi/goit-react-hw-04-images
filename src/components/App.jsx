@@ -41,12 +41,16 @@ export const App = () => {
     getImages();
   }, [query, page]);
 
-  const onSearchSubmit = useCallback((query) => {
-    setQuery(query);
+  const onSearchSubmit = useCallback((submitQuery) => {
+    if(submitQuery === query) {
+      return
+    }
+    setQuery(submitQuery);
     setPage(1);
+    setTotal(0);
     setImages([]);
     setError(null);
-  }, []);
+  }, [query]);
 
   return (
     <>
